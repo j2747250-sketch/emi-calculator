@@ -8,4 +8,108 @@ main{width:min(100%,540px)}.eyebrow{font-size:13px;font-weight:700;letter-spacin
 h1{font-size:clamp(34px,6vw,48px);line-height:1.1;letter-spacing:-.045em;margin:14px 0 14px}p{color:#62708a;font-size:16px;line-height:1.6;margin:0 0 28px}
 a{display:flex;align-items:center;justify-content:space-between;gap:16px;text-decoration:none;padding:23px 25px;border:1px solid #e7ebf4;border-radius:18px;background:white;box-shadow:0 10px 35px #27396b0c;color:#172442;transition:transform .18s,box-shadow .18s}a:hover{transform:translateY(-2px);box-shadow:0 15px 45px #27396b1b}a:focus-visible{outline:3px solid #3f65e9;outline-offset:4px}
 strong{font-size:18px}small{display:block;color:#62708a;margin-top:6px;font-size:14px}.arrow{font-size:28px;color:#3f65e9}
-</style></head><body><main><div class="eyebrow">Rupee Resolve</div><h1>EMI Calculators</h1><p>Choose a bank to estimate credit card EMI foreclosure charges and your final net cost.</p><a href="./icici/"><span><strong>ICICI Bank</strong><small>EMI Foreclosure Calculator</small></span><span class="arrow" aria-hidden="true">↗</span></a></main></body></html>
+
+    /* Floating Rupee Resolve support card — styles isolated from calculator */
+    .rrp *, .rrp *::before, .rrp *::after { box-sizing: border-box; }
+    .rrp {
+      position: fixed; right: max(20px, env(safe-area-inset-right));
+      bottom: max(20px, env(safe-area-inset-bottom));
+      width: min(354px, calc(100vw - 32px)); z-index: 1000;
+      isolation: isolate;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #153b39;
+      filter: drop-shadow(0 12px 23px rgba(12, 48, 49, .13));
+      animation: rrp-intro .55s cubic-bezier(.2,.8,.2,1) both;
+    }
+    @keyframes rrp-intro { from { transform: translateY(15px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .rrp.rrp-hidden { display: none; }
+    .rrp-link {
+      position: relative; display: block; text-decoration: none; color: inherit;
+      background: #fff; border-radius: 19px; border: 1px solid #d7eee7;
+      padding: 19px 21px 17px; overflow: hidden; box-shadow: 0 8px 38px rgba(10, 51, 48, .1);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .rrp-link::before {
+      content: ''; pointer-events: none; position: absolute; right: -64px; top: -78px;
+      width: 175px; height: 175px; border-radius: 50%; background: radial-gradient(circle, rgba(26, 169, 139, .12), transparent 67%);
+    }
+    .rrp-link:hover { transform: translateY(-3px); box-shadow: 0 14px 45px rgba(10, 51, 48, .16); border-color: #87cec0; }
+    .rrp-link:focus-visible, .rrp-dismiss:focus-visible { outline: 3px solid #00816f; outline-offset: 3px; }
+    .rrp-top { display: flex; gap: 11px; align-items: center; padding-right: 23px; }
+    .rrp-logo {
+      width: 49px; height: 49px; flex: none; display: grid; place-items: center; border-radius: 13px;
+      background: linear-gradient(145deg, #e6f9f5, #f4fdfb); border: 1px solid #d8f0e9;
+    }
+    .rrp-logo img { height: 39px; width: 39px; object-fit: contain; }
+    .rrp-brand, .rrp-subbrand { display: block; }
+    .rrp-brand { font-weight: 820; letter-spacing: .025em; font-size: 12px; color: #047466; }
+    .rrp-subbrand { margin-top: 4px; font-size: 11px; color: #7b9690; font-weight: 570; }
+    .rrp-title { margin-top: 14px; display: block; color: #163b36; font-size: 21px; line-height: 1.25; letter-spacing: -.035em; font-weight: 800; }
+    .rrp-copy { margin: 7px 0 14px; color: #5b746f; line-height: 1.47; font-size: 12.5px; }
+    .rrp-action {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 10px; min-height: 38px; border-radius: 10px; padding: 9px 13px;
+      background: linear-gradient(105deg, #007e70, #069986); color: white;
+      font-size: 12px; font-weight: 760; letter-spacing: .003em;
+    }
+    .rrp-action svg { width: 17px; height: 17px; flex: none; }
+    .rrp-dismiss {
+      position: absolute; right: 10px; top: 9px; width: 28px; height: 28px; z-index: 2;
+      border: none; border-radius: 8px; background: transparent; color: #7d9993;
+      display: grid; place-items: center; font-size: 20px; line-height: 1;
+      cursor: pointer; transition: background .15s ease, color .15s ease;
+    }
+    .rrp-dismiss:hover { background: #e9f5f0; color: #1a6055; }
+    .rrp-mobileline { display: none; }
+    @media (max-width: 640px) {
+      .rrp { right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); width: min(328px, calc(100vw - 24px)); }
+      .rrp-link { padding: 12px 40px 12px 13px; border-radius: 15px; }
+      .rrp-top { gap: 10px; padding-right: 0; }
+      .rrp-logo { width: 51px; height: 51px; border-radius: 12px; }
+      .rrp-logo img { height: 41px; width: 41px; }
+      .rrp-brand, .rrp-subbrand { display: block; }
+    .rrp-brand { font-size: 11px; }
+      .rrp-subbrand { display: none; }
+      .rrp-title { margin: 5px 0 0; font-size: 15px; line-height: 1.25; }
+      .rrp-copy, .rrp-action { display: none; }
+      .rrp-mobileline { display: block; margin: 5px 0 0; font-size: 11px; font-weight: 590; color: #5b746f; line-height: 1.35; }
+      .rrp-dismiss { top: 7px; right: 6px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .rrp { animation: none; }
+      .rrp-link { transition: none; }
+    }
+
+  </style></head><body><main><div class="eyebrow">Rupee Resolve</div><h1>EMI Calculators</h1><p>Choose a bank to estimate credit card EMI foreclosure charges and your final net cost.</p><a href="./icici/"><span><strong>ICICI Bank</strong><small>EMI Foreclosure Calculator</small></span><span class="arrow" aria-hidden="true">↗</span></a></main>
+  <!-- Rupee Resolve promo: entire card links to the contact form; the X only dismisses it. -->
+  <aside class="rrp" id="rr-promo" aria-label="Rupee Resolve: help with bank and NBFC disputes">
+    <button class="rrp-dismiss" type="button" aria-label="Dismiss Rupee Resolve message" title="Dismiss">&times;</button>
+    <a class="rrp-link" href="https://www.rupeeresolve.com/#contact" target="_blank" rel="noopener noreferrer" aria-label="Bank or NBFC dispute? Get help from Rupee Resolve — opens contact form in a new tab">
+      <div class="rrp-top">
+        <span class="rrp-logo"><img src="./assets/rupee-resolve-logo.png" width="39" height="39" alt="Rupee Resolve" /></span>
+        <span>
+          <span class="rrp-brand">RUPEE RESOLVE</span>
+          <span class="rrp-subbrand">Financial dispute assistance</span>
+          <span class="rrp-title">Bank or NBFC dispute?</span>
+          <span class="rrp-mobileline">Unfair charges? Fight back &amp; recover what you're owed →</span>
+        </span>
+      </div>
+      <p class="rrp-copy">Unfair bank fees, EMI errors or stuck refunds? We help you challenge them and seek the money you may be owed.</p>
+      <span class="rrp-action">Get help recovering your money
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+      </span>
+    </a>
+  </aside>
+  <script>
+    (function () {
+      var promo = document.getElementById('rr-promo');
+      var dismiss = promo.querySelector('.rrp-dismiss');
+      try { if (sessionStorage.getItem('rr-promo-dismissed') === '1') promo.classList.add('rrp-hidden'); } catch (e) { /* Works without storage too */ }
+      dismiss.addEventListener('click', function () {
+        promo.classList.add('rrp-hidden');
+        try { sessionStorage.setItem('rr-promo-dismissed', '1'); } catch (e) { /* No storage required */ }
+      });
+    })();
+  </script>
+
+</body></html>
