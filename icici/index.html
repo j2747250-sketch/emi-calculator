@@ -249,11 +249,18 @@
       .rrp-link { transition: none; }
     }
 
+  
+    .bank-nav { font-size: 12px; text-decoration: none; color: #4364c9; background: white; padding: 9px 13px; border-radius: 100px; border:1px solid #dfe6f6; font-weight: 700; }
+    .bank-nav:hover { background: #eef2ff; }
+    .bank-nav:focus-visible { outline: 3px solid #6b88f1; outline-offset: 3px; }
+    @media(max-width: 540px){.topbar { flex-wrap: wrap; }.bank-nav { font-size: 11px; }}
   </style>
 </head>
 <body>
   <div class="shell">
     <header class="topbar">
+      <a class="bank-nav" href="../">← All calculators</a>
+      <a class="bank-nav" href="../most-banks/">Other banks ↗</a>
       <div class="brand">
         <div class="brand-mark" aria-hidden="true">₹</div>
         <div>
